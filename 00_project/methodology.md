@@ -2,18 +2,35 @@
 
 **Version:** 1.0 (DRAFT — pending Gate 1 approval) · **Last updated:** 08-Oct-2026 · **Gate:** 1
 
-This is the normative reference for evidence rules, metric definitions and status definitions. The research organisation (workstreams, sequencing, registers, protocols, scenarios, screening and GIS) is defined in `research_architecture.md` and `workstream_charters.md`.
+This is the normative reference for evidence rules, metric definitions and status definitions. The research organisation (workstreams, sequencing, registers, protocols, scenarios, screening and GIS) is defined in `research_architecture.md` and `workstream_charters.md`. How missions are executed, verified, reconciled and accepted is defined in `research_execution_protocol.md` (Gate 2A), which applies these definitions without amending them.
 
 ## 1. Evidence hierarchy
 
+The **authoritative six-tier hierarchy** (D-082, confirmed by the owner at Gate 2C) is as follows. **Tier 6 is never part of the evidence hierarchy.**
+
 | Tier | Class | Examples | Can stand alone as evidence? |
 |---|---|---|---|
-| 1 | Primary official | Laws, decrees, ministry / regulator / utility / system-operator reports, WAPP / ECOWAS official documents, signed agreements, statutory filings | Yes |
-| 2 | Multilateral / DFI | World Bank, IFC, AfDB, EIB, IsDB, IMF, UN — appraisal and completion reports, diagnostics, databases | Yes |
-| 3 | Data institutions / peer-reviewed | IEA, IRENA, academic literature | Yes, with definition check |
-| 4 | Industry / corporate | Press releases, investor presentations, company disclosures | Only for that company's own facts; otherwise requires corroboration |
-| 5 | Media / commentary | Trade press, news | No — corroboration required |
-| 6 | Leads only | Gemini / AI output, unsourced web content | **Never** |
+| 1 | Guinea government / primary institutional | Laws, decrees, official gazette, ministry, regulator, utility and system-operator publications, Guinea public-institution statistics, government-published agreements and award notices | Yes |
+| 2 | WAPP / ECOWAS / regional institutional | WAPP Secretariat/ICC documents, ECOWAS and regional regulator decisions, regional interconnector operators, river-basin organisations | Yes |
+| 3 | World Bank / IFC / AfDB / EIB / IMF / UN / other DFIs | Appraisal, status and completion documents; country diagnostics; DFI databases | Yes |
+| 4 | Data institutions, science and engineering | IRENA, IEA, Global Energy Monitor, Ember, NREL, Global Solar Atlas, Global Wind Atlas, NASA, NOAA, Copernicus, peer-reviewed literature, engineering studies | Yes, with a definition check (single-source value is INDICATIVE) |
+| 5 | Corporate and project disclosures | OEM / EPC / IPP / mining-company disclosures, investor presentations, project-finance disclosures, tenders, corporate statutory filings | Only for the issuer's own disclosed facts (D-086); otherwise corroboration required |
+| 6 | AI-generated or otherwise unsourced material | Gemini or any AI output, unsourced web content, aggregators | **Never — LEAD ONLY** |
+
+**Gate 1 tier labels.** Labels in documents written before D-082, including the "Source priorities" lines of `workstream_charters.md`, map as follows. The order of preference stated in each charter is unchanged.
+
+| Gate 1 label | Authoritative tier (D-082) |
+|---|---|
+| T1 | T1 (Guinea government) or T2 (WAPP/ECOWAS/regional); corporate statutory filings → T5 (issuer's own facts, D-086) |
+| T2 | T3 |
+| T3 | T4 |
+| T4 | T5 |
+| T5 (media) | Secondary reporting / discovery, not an evidence tier (D-086); recorded as tier 5 with document type NEWS_ARTICLE / TRADE_PRESS |
+| T6 | T6 |
+
+**Media and trade press (P-029 resolved, D-086)** are secondary reporting and discovery sources. **They are not an evidence tier equivalent to institutional or primary sources.** They may identify leads, point researchers to the underlying primary sources, provide contextual reporting, and corroborate chronology or public reporting where appropriate. **They must not independently establish a material quantitative or legal claim where a suitable primary or authoritative source is reasonably available.** Repeated media reports that derive from the same underlying source are not independent corroboration. In the source register they carry `source_tier` 5 with `document_type` NEWS_ARTICLE or TRADE_PRESS; the document type, not the tier number, governs their limited use (validator VR-30).
+
+**Corporate statutory filings (D-086)** are Tier 5. They are authoritative for the **issuer's own disclosed facts**, subject to the normal verification rules. Examples: company ownership, company-reported production, capacity, financial information, project commitments, contracts or project status. A corporate filing is **not** authoritative for unrelated government, grid, regulatory or national-system facts merely because it is a statutory filing (validator VR-31).
 
 **Discloser independence** (recorded per source and data point): `INDEPENDENT_AUDITED` (e.g. supreme audit institution, DFI completion report, EITI reconciliation) · `OFFICIAL_SELF_REPORTED` (e.g. utility or ministry statistics) · `SELF_REPORTED_PROMOTIONAL` (e.g. press releases, investor presentations, speeches). Tier and independence are recorded separately.
 
@@ -21,11 +38,13 @@ This is the normative reference for evidence rules, metric definitions and statu
 
 | Category | Definition |
 |---|---|
-| **VERIFIED** | Confirmed directly in a Tier 1 or Tier 2 source, with metric definition and date clear. |
-| **CORROBORATED** | Supported by two or more independent sources (at least one Tier 1–3) that agree within a stated tolerance, but no single definitive primary source located. |
+| **VERIFIED** | Confirmed directly in a Tier 1, 2 or 3 source (D-082 numbering), with metric definition and date clear. |
+| **CORROBORATED** | Supported by two or more independent sources (at least one Tier 1–4, D-082) that agree within a stated tolerance, but no single definitive primary source located. |
 | **ESTIMATED** | Derived by Claude or a cited source through a documented calculation or method from verified/corroborated inputs. Method recorded. |
-| **INDICATIVE** | Single Tier 3–5 source, or source with unclear definition/date. Usable for context only; not for headline figures without a caveat. |
+| **INDICATIVE** | Single Tier 4–5 source (D-082), or source with unclear definition/date. Usable for context only; not for headline figures without a caveat. |
 | **DATA GAP** | No adequate source located. Recorded in the data-gap register. |
+
+*"Agree within a stated tolerance" and "within tolerance" are applied under D-072: no universal numerical tolerance is assumed, and values agree when they are identical or differ only by demonstrable reporting precision after the comparability tests (`research_execution_protocol.md` §10.1).*
 
 Final deliverables: headline and decision-critical figures must be VERIFIED or CORROBORATED. ESTIMATED figures must show method. INDICATIVE figures must be visibly caveated. DATA GAP is stated as such.
 
@@ -76,7 +95,7 @@ No material statistic enters the master data register without a traceable source
 | `value` | Numeric value (or low/high for RANGE-CARRIED) |
 | `unit` | Unit (MW, MW-DC, MW-AC, GWh, %, USD, INR, etc.) |
 | `geography` | Country / region / site |
-| `spatial_granularity` | `NATIONAL_AGGREGATE` / `REGIONAL` / `PREFECTURE` / `SUBSTATION_NODE` / `PLANT_SITE` / `OTHER` |
+| `spatial_granularity` | `NATIONAL_AGGREGATE` / `REGIONAL` / `PREFECTURE` / `SUBSTATION_NODE` / `PLANT_SITE` / `OTHER`, extended by D-067. Implemented as `geo_level` with the controlled list `v_geo_level` in `register_schema.md` |
 | `period` | Date, year, month or season the value refers to |
 | `source_id` | Link to source register |
 | `source_title` / `publisher` | As in the source register (denormalised for review) |
@@ -96,9 +115,11 @@ No material statistic enters the master data register without a traceable source
 | `notes` | Caveats |
 | `status` | ACTIVE / SUPERSEDED (with `superseded_by`) |
 
+*Under D-074, the Master Data Register may also hold atomic, defined, traceable structured categorical facts (`value_kind` CATEGORICAL, with `categorical_type` and `value_text`), subject to the same metadata and provenance. Narrative, opinions, interpretations, broad qualitative assessments, causal explanations and commercial judgements are excluded; they belong in lead, analysis or reconciliation structures (`register_schema.md` VR-11a).*
+
 ## 4. Registers
 
-The full register architecture (11 registers, locations, ID formats, contents) is defined in `research_architecture.md` §G. This section governs format and source-document handling.
+The full register architecture (11 logical registers per D-076, locations, ID formats, contents) is defined in `research_architecture.md` §G. This section governs format and source-document handling.
 
 ### 4.1 Register format
 
@@ -220,7 +241,7 @@ A project is assigned the highest stage for which qualifying evidence exists. Cl
 
 - MoUs, LOIs and framework agreements never qualify a project above **Announced**.
 - DFI board approval without a signed financing agreement does not qualify as **Financially committed**.
-- Sponsor claims of progress (Tier 4) need corroboration before they can qualify a project for **Financially committed** or a later stage.
+- Sponsor claims of progress (Tier 5, D-082) need corroboration before they can qualify a project for **Financially committed** or a later stage.
 - When sources disagree about status, the disagreement is recorded in the contradiction register.
 - **Transmission and interconnectors:** "Operational" requires evidence of energisation (not mechanical completion). Interconnector commercial activation is recorded separately (§5).
 - **Multi-component projects** (e.g. mine + rail + port; plant + evacuation line): each component carries its own stage and condition.

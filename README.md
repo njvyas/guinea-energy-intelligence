@@ -80,7 +80,7 @@ Adversarial review (Gate 8) → Final reconciliation (Gate 9)
 Deliverable production (Gate 10) → Final QA (Gate 11)
 ```
 
-Full gate definitions: `00_project/quality_gates.md`. Research architecture (28 workstreams, sequencing, missions, registers, protocols, scenarios, screening, GIS): `00_project/research_architecture.md` and `00_project/workstream_charters.md`.
+Full gate definitions: `00_project/quality_gates.md`. Research architecture (28 workstreams, sequencing, missions, registers, protocols, scenarios, screening, GIS): `00_project/research_architecture.md` and `00_project/workstream_charters.md`. Research execution (mission lifecycle, verification, reconciliation, acceptance): `00_project/research_execution_protocol.md`. Register schema and data dictionary: `00_project/register_schema.md`. Executable Gemini mission packages: `01_gemini_research/00_architecture/mission_packages/`.
 
 ## 6. Roles
 
@@ -97,19 +97,19 @@ Agent-specific instructions: `00_project/claude_operating_instructions.md`, `00_
 
 From most to least authoritative:
 
-1. **Tier 1 — Primary official:** Government of Guinea laws, decrees, ministry and regulator publications; utility and system-operator reports; WAPP / ECOWAS official documents; signed agreements; company statutory filings.
-2. **Tier 2 — Multilateral / DFI:** World Bank, IFC, AfDB, EIB, IsDB, IMF, UN agencies — project appraisal documents, completion reports, country diagnostics, statistical databases.
-3. **Tier 3 — Recognised data institutions and peer-reviewed research:** IEA, IRENA, academic literature, reputable research institutes.
-4. **Tier 4 — Industry and corporate:** Company press releases, investor presentations, OEM/EPC/IPP announcements, mining company disclosures.
-5. **Tier 5 — Media and secondary commentary:** Trade press, news, analyst commentary.
-6. **Tier 6 — Leads only:** Gemini or other AI-generated research, unsourced web content. **Never evidence.**
+1. **Tier 1 — Guinea government / primary institutional:** laws, decrees, official gazette, ministry, regulator, utility and system-operator publications.
+2. **Tier 2 — WAPP / ECOWAS / regional institutional:** WAPP, ECOWAS, regional regulator, interconnector operators, river-basin organisations.
+3. **Tier 3 — World Bank / IFC / AfDB / EIB / IMF / UN / other DFIs.**
+4. **Tier 4 — Data institutions, science and engineering:** IRENA, IEA, Global Energy Monitor, Ember, NREL, Global Solar/Wind Atlas, NASA, NOAA, Copernicus, scientific literature, engineering studies.
+5. **Tier 5 — Corporate and project disclosures:** OEM/EPC/IPP/mining-company disclosures, investor presentations, project-finance disclosures, tenders, corporate statutory filings (issuer's own disclosed facts only). Media and trade press are secondary reporting/discovery sources, not an evidence tier; they never independently establish a material quantitative or legal claim (D-086).
+6. **Tier 6 — AI-generated or otherwise unsourced material:** LEAD ONLY, **never evidence**.
 
 A lower-tier source can corroborate but cannot override a higher-tier source without a recorded contradiction entry and reasoning.
 
 ## 8. Non-negotiable rules
 
 1. **Raw research must never be overwritten.** Files deposited in `01_gemini_research/` and original documents in `02_sources/` are immutable. Corrections, annotations and verifications are written to new files or registers.
-2. **Gemini research is an unverified research lead.** No Gemini claim enters an evidence register or deliverable until independently verified against a Tier 1–4 source.
+2. **Gemini research is an unverified research lead.** No Gemini claim enters an evidence register or deliverable until independently verified against a Tier 1–5 source (Tier 5 only for the issuer's own facts; D-082).
 3. **Primary evidence is the ultimate authority.** Where sources disagree, the highest-tier, most recent, most specific source governs — and the disagreement is still recorded.
 4. **Material contradictions must be recorded** in `03_evidence/contradictions/`. They are never silently reconciled.
 5. **Unsupported numbers must not enter final deliverables.** Every material number in a deliverable must trace to an evidence-register entry with a confidence category.

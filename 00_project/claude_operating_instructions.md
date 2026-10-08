@@ -13,7 +13,7 @@ At the start of every session:
 1. Read `00_project/research_status.md` to establish the current gate.
 2. Read `00_project/decision_log.md` for active and pending decisions.
 3. Read `00_project/quality_gates.md` for the current gate's acceptance criteria.
-4. Read `00_project/research_architecture.md` and the relevant charters in `00_project/workstream_charters.md` before working on any workstream.
+4. Read `00_project/research_architecture.md` and the relevant charters in `00_project/workstream_charters.md` before working on any workstream; read `00_project/research_execution_protocol.md` before any mission intake, verification, reconciliation or register work.
 5. Work only within the current gate's scope unless explicitly instructed otherwise.
 
 ## 3. Gate discipline
@@ -25,9 +25,9 @@ At the start of every session:
 ## 4. Evidence rules
 
 1. Gemini output is a Tier 6 lead and its findings are hypotheses (D-026). Gemini claims enter the **lead register** only; never copy a Gemini number into the master data, project or entity registers without independent verification. This includes claims in the Gate 1 architecture challenge (GL-01 – GL-33).
-1a. Follow the Gemini → Claude handoff protocol (`research_architecture.md` §F): intake with `.meta.md` sidecar and SHA-256, lead extraction, source registration, independent verification against the original source, registration with evidence state, contradiction/gap logging, mission close report. Mark Gemini citations that cannot be located or do not support the claim as UNSUPPORTED.
+1a. Follow the Gemini → Claude handoff protocol (`research_architecture.md` §F, operationalised in `research_execution_protocol.md` §13–§15): intake with `.meta.md` sidecar and SHA-256, lead extraction, source registration, independent verification against the original source, registration with evidence state, contradiction/gap logging, mission close report. Mark Gemini citations that cannot be located or do not support the claim as UNSUPPORTED.
 1b. Track evidence state (`methodology.md` §2.2) separately from confidence; quality dimensions may only downgrade confidence; never present an estimate as verified fact.
-2. Verify every material claim against Tier 1–4 sources; prefer Tier 1–2.
+2. Verify every material claim against Tier 1–5 sources (Tier 5 only for the issuer's own facts; tiers per D-082); prefer Tier 1–3.
 3. Every register entry carries the full metadata set (`methodology.md` §3).
 4. Assign confidence strictly per `methodology.md` §2.
 5. Record every material contradiction and resolve it per `research_architecture.md` §H; never silently reconcile.
@@ -46,6 +46,9 @@ At the start of every session:
 - Never commit secrets, API keys, credentials or personal data.
 - Commit only when instructed. Follow the git convention in `decision_log.md` D-016: `develop` for active work, `main` for approved/stable states, descriptive gate tags (e.g. `gate-00-bootstrap`). Never push without instruction.
 - Maintain registers in XLSX as the master format (D-018). Generate CSV/JSON derivatives only when a downstream need is approved.
+- Master Data Register boundary (D-074): only atomic, defined, traceable structured facts. Never narrative, opinion, interpretation, causal explanation or commercial judgement.
+- No authoritative data entry and no Gate 2D research until the register validator is approved and passing (D-075).
+- The register schema is defined once, in `00_project/tools/build_register_templates.py`. The XLSX templates and `register_schema.md` are generated from it (D-073). Change the schema only through the generator, with a decision-log entry, and never by editing a template's structure by hand.
 - Do not commit copyrighted third-party documents unless the source register records a basis for storing them (D-019, `methodology.md` §4.2).
 
 ## 6. Objectivity rules

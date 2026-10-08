@@ -31,6 +31,20 @@ Tags for Gates 4–11 follow the approved pattern and may be refined when each g
 
 ---
 
+## Standing governance check — evidence-data rule (controlled gate transition, D-077)
+
+**Authoritative rule:** no populated evidence data before authorised research execution (Gate 2D).
+
+How the check applies changes at Gate 2B. This is a planned gate transition, not a correction of Gate 1:
+
+| Period | What the check verifies |
+|---|---|
+| **Before Gate 2B** | No evidence register files exist in `03_evidence/`, `05_gis/` or `06_opportunities/`. |
+| **From Gate 2B until Gate 2D authorises research or data entry** | Only the approved empty register templates may exist. They must contain **zero data records** (the Gate 2B requirement). No other evidence data files may exist. |
+| **From Gate 2D onwards** | Records may be entered only through the approved protocol, only after the register validator passes (D-075), and initially only with `acceptance_status = PROPOSED`. |
+
+The separate Gate 2B requirement, **"All register templates must contain zero data records"**, remains in force until Gate 2D.
+
 ## GATE 0 — Repository bootstrap
 
 | Item | Definition |
@@ -56,10 +70,21 @@ Tags for Gates 4–11 follow the approved pattern and may be refined when each g
 | Item | Definition |
 |---|---|
 | **Objective** | Gather research leads and candidate sources across all 26 Phase A workstreams (WS-01 – WS-26). |
-| **Inputs** | Approved Gate 1 architecture; mission briefs; XLSX register templates generated at Gate 2 opening. |
+| **Inputs** | Approved Gate 1 architecture; mission briefs; Research Execution Protocol (2A); XLSX register templates (2B); approved mission packages (2C). |
 | **Expected outputs** | Gemini mission outputs in `01_gemini_research/GEM-NN_<slug>/` (immutable, with `.meta.md` sidecars incl. SHA-256); Claude independent discovery covering every Phase A workstream (including gaps not covered by the initial mission batch); lead register; draft source register; mission close reports; proposals for follow-up missions where warranted. |
 | **Acceptance criteria** | All 26 Phase A workstreams have discovery coverage; every cited source is logged (unlocatable Gemini citations flagged); all GL-01 – GL-33 leads transferred to the lead register; Gemini outputs stored unaltered with date and prompt reference; no lead used in analysis. |
 | **Approver** | User + ChatGPT |
+
+### Gate 2 sub-gates (D-055)
+
+Gate 2 is executed as four sequential sub-gates, each separately approved by User + ChatGPT. Detail: `research_execution_protocol.md` §0.
+
+| Sub-gate | Objective | Expected outputs | Acceptance criteria |
+|---|---|---|---|
+| **2A — Research Execution Protocol** | Define mission execution, capture, verification, reconciliation, challenge and acceptance | `research_execution_protocol.md`; pointer updates; Gate 2A pending decisions | Consistent with Gate 1 architecture; no research, registers or data; pending decisions documented |
+| **2B — Register templates** | Create empty XLSX templates from approved schemas incl. 2A decisions | Empty templates for the 11 logical registers (Entity/Site as two physical sheets; D-076): headers, enumerations, validation only; `register_schema.md`; generator | Schemas match `methodology.md` §3, §4.2, §6.3 and `research_architecture.md` §G; **all register templates contain zero data records** |
+| **2C — Mission packages** | Compile and validate executable packages for GEM-01 – GEM-15; design and build the register validator (D-075) | Archived packages (instructions + brief + output contract + prompt version) in `01_gemini_research/00_architecture/`; register validator (CLI or equivalent) | Each package maps to valid WS/questions; contract per protocol §12; validator checks the D-075 capability list against the empty templates; no execution |
+| **2D — Research execution authorisation** | Authorise mission execution and Claude independent discovery (by wave); accept discovery outputs | Raw artifacts with sidecars; lead and source registrations; Mission Reconciliation Reports | **Prerequisite: approved register validator in place and passing (D-075)**; protocol §15 acceptance criteria per mission; Gate 2 acceptance criteria above |
 
 ## GATE 3 — Evidence consolidation
 

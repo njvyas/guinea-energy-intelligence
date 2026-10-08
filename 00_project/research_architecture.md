@@ -231,7 +231,7 @@ These rules apply to every Gemini artifact. The Gate 1 architecture challenge is
 1. **XLSX is authoritative.** Each register is one XLSX workbook, and that workbook is the human-facing master (D-018).
 2. **Derivatives only.** CSV or JSON files may be generated from the XLSX master when needed (e.g. for the HTML platform or analysis scripts). They are written by a script, never edited by hand, and labelled as derived. They are regenerated whenever the master changes.
 3. **No competing copies.** No manually maintained duplicate, extract or parallel version of any register may exist. A filtered view (e.g. the priority portfolio) is produced from the master, not kept separately.
-4. **Each value is stored once.** Every material quantitative value is stored **only** in the Master Data Register (MDR). Other registers refer to it by `DAT-` ID. Any number they display is a derived lookup, not a separately maintained value.
+4. **Each value is stored once.** Every material quantitative value is stored **only** in the Master Data Register (MDR). Other registers refer to it by `DAT-` ID. Any number they display is a derived lookup, not a separately maintained value. *Under D-074, the MDR may also hold atomic, defined, traceable structured categorical facts (`value_kind` CATEGORICAL). It never holds narrative, opinion, interpretation, causal explanation or commercial judgement.*
 5. **No data at Gate 1.** No register is created or populated at Gate 1. Templates are generated from these schemas when Gate 2 opens (P-009).
 6. **Authority.** Claude Code maintains every register (except where stated), and the User and ChatGPT approve register states at each gate. Alendei capability facts come only from the user.
 
@@ -256,7 +256,7 @@ These rules apply to every Gemini artifact. The Gate 1 architecture challenge is
 The structure was reviewed for duplication. **Each register has a distinct function that no other register performs**, so no further consolidation is warranted:
 
 - **Consolidations already applied:**
-  - organisations and sites share one entity workbook;
+  - organisations and sites share one entity workbook. There are **11 logical registers**; Entity/Site is implemented as two physical tables/sheets where required by the schema (D-076);
   - the priority portfolio, the benchmark tables and the pipeline summaries are views generated from registers, not separate registers.
 - **Duplication of values is prevented by G.1 rule 4:** the project, entity, opportunity and assumption registers store references, not copies.
 - **Separations kept deliberately:**
@@ -282,6 +282,8 @@ Defined in `methodology.md` §2.2 (D-032):
 
 **Trigger:** two or more values for the same metric, entity, geography and period that differ by more than the tolerance set for that metric class. Tolerances are set in the register template at Gate 2. Any difference in a status or a categorical value counts as a contradiction.
 
+*Amended by D-072 (Gate 2B, owner decision): no universal numerical tolerance is assumed. Any difference triggers the comparability tests (definition, period, geography, scope, unit, AC/DC basis, capacity/energy basis, methodology, source precision). A difference is treated as reporting precision only when the definitions are comparable, the periods, geography and scope are comparable, and the difference is demonstrably attributable to precision. Otherwise the contradiction is preserved or a range carried. See `research_execution_protocol.md` §10.1.*
+
 **Steps:**
 
 1. **Log** every value with its full metadata (`CON-NNNN`). Each value keeps its own data ID.
@@ -294,6 +296,8 @@ Defined in `methodology.md` §2.2 (D-032):
    - duplication (the same project under different names);
    - transcription error;
    - genuine disagreement.
+
+   Two cause codes, METHODOLOGY and SUPERSEDED, are added by D-068, and REPORTING_PRECISION by D-072 (`v_cause_code` in `register_schema.md`).
 3. **Apply the standing normalisation rules:**
    - solar is recorded in both MW-DC and MW-AC;
    - hydro is recorded as nameplate plus seasonal dependable capacity;

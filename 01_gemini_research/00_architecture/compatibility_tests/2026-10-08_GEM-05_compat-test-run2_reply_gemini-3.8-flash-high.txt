@@ -1,0 +1,123 @@
+T1.
+<!-- PROMPT START -->
+<!-- PROMPT END -->
+
+T2.
+## 1. Mission ID
+## 2. Mission title
+## 3. Purpose
+## 4. Workstreams covered
+## 5. Research questions
+## 6. Question priority
+## 7. Geographic scope
+## 8. Historical / current / future scope
+## 9. Required source hierarchy
+## 10. Primary-source search strategy
+## 11. Secondary-source treatment
+## 12. Search boundaries
+## 13. Required quantitative evidence
+## 14. Required terminology / definitions
+## 15. Required cross-checks
+## 16. Contradiction handling
+## 17. Data-gap handling
+## 18. HYPOTHESIS TRAPS / PROHIBITED ASSUMPTIONS
+## 19. Required Gemini output structure
+## 20. Supporting-artifact rules
+## 21. Mission stopping criteria
+## 22. Research limitations
+## 23. Follow-up questions
+
+T3.
+### GEM-05-Q01 — [CRITICAL] WS-09 Q1
+### GEM-05-Q02 — [HIGH] WS-09 Q2
+### GEM-05-Q03 — [HIGH] WS-09 Q3
+### GEM-05-Q04 — [CRITICAL] WS-09 Q4
+### GEM-05-Q05 — [HIGH] WS-09 Q5
+### GEM-05-Q06 — [CRITICAL] WS-06 Q1
+### GEM-05-Q07 — [HIGH] WS-06 Q2
+### GEM-05-Q08 — [MEDIUM] WS-06 Q3
+### GEM-05-Q09 — [MEDIUM] WS-06 Q4
+### GEM-05-Q10 — [HIGH] WS-06 Q5
+### GEM-05-Q11 — [MEDIUM] WS-07 Q2
+### GEM-05-Q12 — [HIGH] WS-07 Q3
+### GEM-05-Q13 — [MEDIUM] WS-07 Q4
+### GEM-05-Q14 — [LOW] WS-07 Q5
+### GEM-05-Q15 — [HIGH] WS-08 Q1
+### GEM-05-Q16 — [HIGH] WS-08 Q2
+### GEM-05-Q17 — [MEDIUM] WS-08 Q3
+### GEM-05-Q18 — [LOW] WS-08 Q5
+
+T4.
+13
+
+T5.
+claim_id | question_id | metric | definition | value (or low–high) | unit | currency | nominal/real (base year) | AC/DC basis | capacity/energy basis | geography name | geo_level | period | temporal class | source_id | page/table/section | evidence_role (VALUE_READ_IN_SOURCE / SOURCE_IDENTIFIED_NOT_READ) | self-assessed confidence + reason
+
+T6.
+1. Mission metadata
+[COMPATIBILITY TEST — NO RESEARCH]
+
+2. Executive findings
+[COMPATIBILITY TEST — NO RESEARCH]
+
+3. Research questions addressed
+[COMPATIBILITY TEST — NO RESEARCH]
+
+4. Findings by question
+[COMPATIBILITY TEST — NO RESEARCH]
+
+5. Quantitative evidence table
+[COMPATIBILITY TEST — NO RESEARCH]
+
+| claim_id | question_id | metric | definition | value (or low–high) | unit | currency | nominal/real (base year) | AC/DC basis | capacity/energy basis | geography name | geo_level | period | temporal class | source_id | page/table/section | evidence_role (VALUE_READ_IN_SOURCE / SOURCE_IDENTIFIED_NOT_READ) | self-assessed confidence + reason |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| GEM-05-C001 | GEM-05-Q01 | TEST | TEST | TEST | TEST | TEST | TEST | TEST | TEST | TEST | TEST | TEST | TEST | GEM-05-S01 | TEST | TEST | TEST |
+
+6. Source roster
+[COMPATIBILITY TEST — NO RESEARCH]
+
+| source_id | exact title (original language) | publisher | document type | publication date | URL or persistent reference | language | access date | proposed tier (1–6) | access limitation (open/registration/paywalled/unavailable/restricted) |
+|---|---|---|---|---|---|---|---|---|---|
+| GEM-05-S01 | TEST | TEST | TEST | TEST | TEST | TEST | TEST | TEST | TEST |
+
+7. Primary-source verification
+[COMPATIBILITY TEST — NO RESEARCH]
+
+8. Cross-source corroboration
+[COMPATIBILITY TEST — NO RESEARCH]
+
+9. Contradictions
+[COMPATIBILITY TEST — NO RESEARCH]
+
+10. Data gaps
+[COMPATIBILITY TEST — NO RESEARCH]
+
+11. Unverified leads
+[COMPATIBILITY TEST — NO RESEARCH]
+GEM-05-C002 — TEST — NO SOURCE — LEAD ONLY
+
+12. Important definitions
+[COMPATIBILITY TEST — NO RESEARCH]
+
+13. Geographic coverage
+[COMPATIBILITY TEST — NO RESEARCH]
+
+14. Historical/current/future classification
+[COMPATIBILITY TEST — NO RESEARCH]
+
+15. Confidence assessment
+[COMPATIBILITY TEST — NO RESEARCH]
+
+16. Research limitations
+[COMPATIBILITY TEST — NO RESEARCH]
+
+17. Recommended follow-up questions
+[COMPATIBILITY TEST — NO RESEARCH]
+
+T7.
+NO
+
+T8.
+YES
+
+END OF COMPATIBILITY TEST

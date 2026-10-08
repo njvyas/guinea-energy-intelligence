@@ -53,7 +53,7 @@ Additional requirements:
 
 ## 4. Output structure and file deposit convention
 
-Every mission output follows the template in `00_project/gemini_mission_briefs.md` §4 (mission metadata; sourced findings; structured data table; source roster; contradictions observed; data gaps; leads for follow-up).
+Every mission output follows the template in `00_project/gemini_mission_briefs.md` §4 (mission metadata; sourced findings; structured data table; source roster; contradictions observed; data gaps; leads for follow-up), as extended by the 17-section **Gemini output contract** in `00_project/research_execution_protocol.md` §12 (claim IDs `GEM-NN-C###`; no prose-only reports). Execution, deposit, verification and acceptance follow `research_execution_protocol.md`.
 
 Initially, Gemini outputs are **manually deposited by the project operator** (decision D-021) into the mission folder:
 

@@ -6,14 +6,14 @@
 
 | Field | Value |
 |---|---|
-| Current Gate | GATE 1 — Research architecture |
-| Status | IN REVIEW — Research Architecture v1.0 with correction pass (D-051 – D-054) complete; awaiting explicit project-owner approval (P-007). Not committed. |
-| Previous gate | GATE 0 — APPROVED, committed `5b1f6e7`, tagged `gate-00-bootstrap`, pushed |
+| Current Gate | GATE 2C — CLOSED; awaiting Gate 2D authorisation |
+| Status | Gates 2A, 2B, 2C approved and closed (D-057, D-085); checkpoint tag `gate-02c-mission-execution-readiness`. Sole Gate 2D prerequisite: confirm execution model (P-030). |
+| Previous gates | GATE 0 — APPROVED (`5b1f6e7`, `gate-00-bootstrap`, pushed) · GATE 1 — APPROVED (`a255d4f`, `gate-01-research-architecture`, pushed) |
 | Architecture | 28 workstreams (WS-01 – WS-28); 133 research questions with planning priorities; Gemini missions GEM-01 – GEM-15 approved as architecture only, NOT STARTED |
 | Research started | NO |
 | Substantive Guinea research performed by Claude | NO |
 | Substantive Guinea research performed by Gemini | NO |
-| Evidence register populated | NO (no register files exist yet; templates to be generated at Gate 2 opening) |
+| Evidence register populated | NO — empty templates for the 11 logical registers exist (Entity/Site as two physical sheets); zero data records. Rule: no populated evidence data before authorised research execution (D-077) |
 | Gemini missions started | NO |
 | Gemini inputs received | Gate 1 architecture challenge only (Tier 6; assertions logged as leads GL-01 – GL-33) |
 | Opportunity analysis started | NO |
@@ -44,7 +44,7 @@
 - [x] Research sequencing mapped to gates
 - [x] Gemini mission structure (GEM-01 – GEM-15, approved as architecture only) and mission → workstream coverage matrix
 - [x] Gemini → Claude handoff protocol
-- [x] Register architecture (11 registers, single-source-of-truth rules) and schema fields
+- [x] Register architecture (11 logical registers, single-source-of-truth rules) and schema fields
 - [x] Gemini artifact accepted as immutable operator-provided source (D-054)
 - [x] Contradiction-resolution protocol
 - [x] Project-status framework (retained; asset-specific rules added)
@@ -54,22 +54,43 @@
 - [x] Regional benchmark metric framework
 - [x] Folder structure aligned (mission-based raw research; WS-based analysis; new register and GIS folders)
 - [x] Governance documents updated and consistency-checked
-- [ ] Gate 1 approved by User + ChatGPT (P-007)
+- [x] Gate 1 approved by User + ChatGPT (P-007)
 - [x] P-008 resolved (D-051)
-- [ ] P-009 confirmed (templates at Gate 2 opening)
-- [ ] Gate 1 committed and tagged `gate-01-research-architecture`
+- [x] P-009 resolved — templates at Gate 2B (D-055)
+- [x] Gate 1 committed (`a255d4f`), tagged `gate-01-research-architecture`, pushed
 
 ### GATE 2 — Discovery research
-- [ ] XLSX register templates generated from approved schemas
+
+**2A — Research Execution Protocol**
+- [x] `research_execution_protocol.md` drafted (lifecycle, evidence states, source/quantitative/temporal/geographic rules, terminology, status, contradictions, confidence, output contract, handoff, reconciliation, acceptance, stopping, failure, copyright, reproducibility)
+- [x] Gate 2A pending decisions documented (P-013 – P-024)
+- [x] Consistency audit against Gate 1 documents
+- [x] Gate 2A approved by User + ChatGPT (D-057); P-013 – P-024 dispositioned (D-058 – D-065)
+
+**2B — Register templates**
+- [x] Register Schema v1.0 (`register_schema.md`) and generator (`00_project/tools/build_register_templates.py`)
+- [x] EMPTY XLSX templates generated for the 11 logical registers (Entity/Site as two physical sheets; D-076), incl. 2A decisions; P-018 – P-020, P-023 resolved
+- [x] Gate 2B schema/consistency audit
+- [x] Register architecture approved by owner; D-071 approved; P-025 approved with boundary (D-074); P-026 approved and strengthened (D-075); D-072 final; D-076, D-077 recorded
+- [x] Gate 2B approved and closed
+
+**2C — Mission packages**
+- [x] Mission packages GEM-01 – GEM-15 (Pv1) compiled and validated (`01_gemini_research/00_architecture/mission_packages/`; D-078 – D-081)
+- [x] Register validator built and passing against empty templates (D-083; 63 tests passing)
+- [x] Gemini prompt compatibility test: GEM-05 and GEM-12 control 10/10 PASS (D-084); no split required
+- [x] Gate 2C approved and closed (D-085); P-029 resolved (D-086); model pinning prepared (D-087)
+
+**2D — Research execution**
 - [ ] GL-01 – GL-33 transferred to lead register
-- [ ] Mission prompts compiled (instructions + brief + template) and archived in `00_architecture/`
-- [ ] Gate 2 research execution authorised (missions may not run before this)
+- [x] Register validator approved and passing (prerequisite, D-075; D-083)
+- [ ] Execution model confirmed by owner (P-030; tested option gemini-3.8-flash-high, D-087)
+- [ ] Gate 2D research execution authorised (missions may not run before this)
 - [ ] Wave 1 missions deposited: GEM-01, GEM-02, GEM-04, GEM-05, GEM-07, GEM-09, GEM-10, GEM-15
 - [ ] Wave 2 missions deposited: GEM-03, GEM-06, GEM-08, GEM-11, GEM-12, GEM-13
 - [ ] Wave 3 mission deposited: GEM-14
 - [ ] Claude independent discovery completed for all 26 Phase A workstreams
 - [ ] Sources captured and source register drafted
-- [ ] Mission close reports
+- [ ] Mission Reconciliation Reports (`GEM-NN_close_report.md`) with challenge logs
 - [ ] Gate 2 approved
 
 ### GATE 3 — Evidence consolidation
@@ -175,4 +196,4 @@
 
 | Mission | Status |
 |---|---|
-| GEM-01 – GEM-15 | APPROVED AS ARCHITECTURE ONLY — NOT STARTED. Execution requires separate Gate 2 authorisation. |
+| GEM-01 – GEM-15 | APPROVED AS ARCHITECTURE; executable packages Pv1 prepared (Gate 2C, pending approval) — NOT STARTED. Execution requires Gate 2D authorisation and the D-075 validator. |
