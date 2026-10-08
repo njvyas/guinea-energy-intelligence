@@ -1,7 +1,7 @@
 # Guinea Energy Intelligence 2026
 
 **Owner:** Alendei Group (Alendei Green RE Pvt. Ltd.)
-**Repository status:** GATE 0 — Repository bootstrap (see `00_project/research_status.md`)
+**Repository status:** see `00_project/research_status.md` (current gate and status)
 **Classification:** Internal strategic research. Not for external distribution without approval.
 
 ---
@@ -42,12 +42,12 @@ Supporting assets (source register, evidence register, contradiction register, d
 
 ```
 00_project/            Project operating system: scope, strategy, methodology, gates, decisions, status, agent instructions
-01_gemini_research/    Raw Gemini research outputs, by workstream (UNVERIFIED LEADS — never edited after deposit)
+01_gemini_research/    Raw Gemini outputs, by mission (GEM-NN_*) plus 00_architecture/ (UNVERIFIED LEADS — never edited after deposit)
 02_sources/            Source documents and source notes, grouped by publisher / origin
-03_evidence/           Master data register, source register, contradiction register, data-gap register
-04_analysis/           Analytical workings and models, by domain
-05_gis/                Geospatial layers and resource data
-06_opportunities/      Candidate opportunities, priority portfolio, commercial models, Alendei role, roadmap, due diligence
+03_evidence/           Source, lead, master data, project, entity, assumption, contradiction and data-gap registers
+04_analysis/           Analysis by workstream (ws01_* – ws26_*) and integrated models (00_integrated_models/)
+05_gis/                Geospatial opportunity, resource, infrastructure and constraint layers
+06_opportunities/      WS-27 country opportunity portfolio; WS-28 Alendei participation, roadmap, due diligence
 07_report/             PDF report drafts, figures, tables, final
 08_presentation/       Executive deck drafts, figures, final
 09_html/               Interactive platform source, data, assets, maps, build, final
@@ -71,7 +71,7 @@ Contradiction & data-gap audit (Gate 4)
 Power-system analysis (Gate 5) → Geographic / resource / demand analysis (Gate 6)
       │
       ▼
-Opportunity development — Alendei lens applied only here (Gate 7)
+Opportunity development — WS-27 country portfolio (Alendei-neutral, frozen) → WS-28 Alendei participation (Gate 7)
       │
       ▼
 Adversarial review (Gate 8) → Final reconciliation (Gate 9)
@@ -80,7 +80,7 @@ Adversarial review (Gate 8) → Final reconciliation (Gate 9)
 Deliverable production (Gate 10) → Final QA (Gate 11)
 ```
 
-Full gate definitions: `00_project/quality_gates.md`.
+Full gate definitions: `00_project/quality_gates.md`. Research architecture (28 workstreams, sequencing, missions, registers, protocols, scenarios, screening, GIS): `00_project/research_architecture.md` and `00_project/workstream_charters.md`.
 
 ## 6. Roles
 
@@ -88,7 +88,7 @@ Full gate definitions: `00_project/quality_gates.md`.
 |---|---|
 | **User (Alendei)** | Project sponsor and final authority. Sets scope, approves strategic gates, supplies any Alendei-internal facts (capabilities, partnerships, licences), decides on opportunities. |
 | **ChatGPT** | Strategic co-reviewer. Co-approves strategic gates with the user, challenges framing, reviews structure and conclusions. |
-| **Gemini** | Independent discovery researcher and adversarial reviewer. Produces research leads per workstream; later attacks draft findings. Output is never treated as evidence on its own. |
+| **Gemini** | Independent discovery researcher and adversarial reviewer. Produces research leads through defined missions; later attacks draft findings. Output is never treated as evidence on its own. |
 | **Claude Code** | Primary engineering, research-verification and project agent. Maintains the repository, verifies claims against primary sources, populates registers, builds analysis, models, GIS layers and deliverables, and keeps status and decision logs current. |
 
 Agent-specific instructions: `00_project/claude_operating_instructions.md`, `00_project/gemini_operating_instructions.md`.
@@ -118,7 +118,7 @@ A lower-tier source can corroborate but cannot override a higher-tier source wit
 
 ## 9. Quality-control principles
 
-- Evidence before conclusions; technology selection follows evidence (solar is not assumed).
+- Evidence before conclusions; technology-neutral assessment — no technology is promoted or de-emphasised before the evidence supports it.
 - Every material statistic carries: value, unit, geography, date/year, metric definition, source, source publication date, URL/reference, confidence, cross-check.
 - Confidence categories: `VERIFIED`, `CORROBORATED`, `ESTIMATED`, `INDICATIVE`, `DATA GAP` (definitions in `00_project/methodology.md`).
 - Capacity, energy and demand metrics are strictly distinguished (installed vs available vs dependable vs dispatched; generation vs delivered vs consumed; peak vs average).
