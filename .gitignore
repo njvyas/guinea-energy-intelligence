@@ -1,0 +1,69 @@
+# --- Secrets and environment ---
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.keystore
+secrets/
+credentials/
+*credentials*.json
+*secret*.json
+service-account*.json
+.netrc
+.npmrc
+.pypirc
+
+# --- OS files ---
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+*~
+
+# --- Editor / IDE ---
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-*
+.history/
+
+# --- Temporary files ---
+tmp/
+temp/
+*.tmp
+*.temp
+*.bak
+*.log
+~$*
+.~lock.*
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+.pytest_cache/
+.mypy_cache/
+
+# --- Node / web build ---
+node_modules/
+.cache/
+.parcel-cache/
+dist/
+09_html/build/*
+!09_html/build/.gitkeep
+
+# --- GIS temporary / generated ---
+*.qgs~
+*.aux.xml
+*.ovr
+*.cpg.tmp
+
+# --- Generated temporary data ---
+*_scratch.*
+scratch/
